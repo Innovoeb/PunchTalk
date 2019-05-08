@@ -1,6 +1,7 @@
 // application's initial state
 const initialState = {
-  messages: []
+  messages: [],
+  username: '',
 }
 
 export default function (state = initialState, action) {
@@ -10,6 +11,10 @@ export default function (state = initialState, action) {
       return {...state,
               messages: [...state.messages, action.payload]
               }
+    case 'SET_USERNAME':
+      // keep the current application's state and add/set new username
+      return {...state,
+              username: action.payload}
     default:
       return state
   }
